@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import ru.netology.sqr.SQRService;
 
 public class SQRServiceTest {
@@ -12,12 +15,18 @@ public class SQRServiceTest {
                       количество чисел из заданного диапазона [10-99],
                       квадрат, которых попадает в выбираемый диапазон).
      */
-    @Test
-    public void servCalculateSquareRangeBorder() {
+    @ParameterizedTest
+   @CsvSource({
+            "100,9801,90" ,
+            "200,300,3" ,
+            "10,100,1"
+    })
+    
+    public void servCalculateSquareRangeBorder(int minRange, int maxRange, int expected) {
         SQRService calc = new SQRService();
-        int minRange = 100;
-        int maxRange = 9801;
-        int expected = 90;
+        // int minRange = 100;
+        // int maxRange = 9801;
+        // int expected = 90;
         int actual = calc.inSqrt(minRange, maxRange);
         System.out.println("Колличество чисел в квадрате попавших в заданный диапазон -  " + actual);
         Assertions.assertEquals(expected, actual);
