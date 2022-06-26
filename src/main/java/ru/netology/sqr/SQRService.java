@@ -1,31 +1,38 @@
 package ru.netology.sqr;
 
 public class SQRService {
+    /*  minRange     - минимальная граница выбираемого диапазона  ;
+        maxRange     - максимальная граница выбираемого диапазона ;
+        changVar     - переменная в заданом диапазоне [10-99]     ;
+        sqrChangVar  - квадрат переменной   changVar              ;
+        index        - индекс (показывает количество чисел из
+                       заданного диапазона [10-99], квадрат,
+                       которых попадает в выбираемый диапазон.
+     */
+    int changVar = 10, sqrChangVar, index;
 
-    int c = 10, d, i;
+    public int inSqrt(int minRange, int maxRange) {
+        System.out.println("Заданный диапазон -  [" + minRange + "-" + maxRange + "]");
 
-    public int inSqrt(int a, int b) {
-        System.out.println("Заданный диапазон -  [" + a + "-" + b + "]");
-
-        c = 10;
-        d = c * c;
-        while (d < a) {
-            c++;
-            d = c * c;
+        changVar = 10;
+        sqrChangVar = changVar * changVar;
+        while (sqrChangVar < minRange) {
+            changVar++;
+            sqrChangVar = changVar * changVar;
         }
-        for (i = 0; d <= b; i++) {
-            d = c * c;
-            if (d > b) {
+        for (index = 0; sqrChangVar <= maxRange; index++) {
+            sqrChangVar = changVar * changVar;
+            if (sqrChangVar > maxRange) {
                 break;
             }
-            if (c > 99) {
+            if (changVar > 99) {
+                
                 break;
             }
-
-
-            System.out.println("Число, квадрат которого попадает в диапазон -" + c + "\n при условии что с = [10-99]");
-            c++;
+            System.out.println("Число, квадрат которого попадает в диапазон -"
+                    + changVar + "\n при условии что changVar = [10-99]");
+            changVar++;
         }
-        return i;
+        return index;
     }
 }
