@@ -9,12 +9,9 @@ public class SQRService {
                        заданного диапазона [10-99], квадрат,
                        которых попадает в выбираемый диапазон.
      */
-    int changVar = 10, sqrChangVar, index;
-
     public int inSqrt(int minRange, int maxRange) {
+        int changVar = 10, sqrChangVar, index;
         System.out.println("Заданный диапазон -  [" + minRange + "-" + maxRange + "]");
-
-        changVar = 10;
         sqrChangVar = changVar * changVar;
         while (sqrChangVar < minRange) {
             changVar++;
@@ -26,7 +23,7 @@ public class SQRService {
                 break;
             }
             if (changVar > 99) {
-                
+
                 break;
             }
             System.out.println("Число, квадрат которого попадает в диапазон -"

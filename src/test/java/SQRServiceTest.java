@@ -16,12 +16,12 @@ public class SQRServiceTest {
                       квадрат, которых попадает в выбираемый диапазон).
      */
     @ParameterizedTest
-   @CsvSource({
-            "100,9801,90" ,
-            "200,300,3" ,
+    @CsvSource({
+            "100,9801,90",
+            "200,300,3",
             "10,100,1"
     })
-    
+
     public void servCalculateSquareRangeBorder(int minRange, int maxRange, int expected) {
         SQRService calc = new SQRService();
         // int minRange = 100;
