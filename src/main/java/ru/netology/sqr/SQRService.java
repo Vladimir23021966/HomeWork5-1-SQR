@@ -10,7 +10,9 @@ public class SQRService {
                        которых попадает в выбираемый диапазон.
      */
     public int inSqrt(int minRange, int maxRange) {
-        int changVar = 10, sqrChangVar, index;
+        int changVar = 10;
+        int sqrChangVar;
+        int index;
         System.out.println("Заданный диапазон -  [" + minRange + "-" + maxRange + "]");
         sqrChangVar = changVar * changVar;
         while (sqrChangVar < minRange) {

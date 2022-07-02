@@ -17,9 +17,9 @@ public class SQRServiceTest {
      */
     @ParameterizedTest
     @CsvSource({
-            "100,9801,90",
+
             "200,300,3",
-            "10,100,1"
+            "500,700,4"
     })
 
     public void servCalculateSquareRangeBorder(int minRange, int maxRange, int expected) {
